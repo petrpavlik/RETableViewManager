@@ -47,7 +47,7 @@
     [super cellWillAppear];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self.item.pickerItem.options enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if (self.item.pickerItem.options[idx] && self.item.pickerItem.value[idx] > 0)
+        if (self.item.pickerItem.options[idx] && self.item.pickerItem.value[idx] > 0 && [self.pickerView numberOfRowsInComponent:idx] > 0)
             [self.pickerView selectRow:[self.item.pickerItem.options[idx] indexOfObject:self.item.pickerItem.value[idx]] inComponent:idx animated:NO];
     }];
     [self.pickerView reloadAllComponents];
